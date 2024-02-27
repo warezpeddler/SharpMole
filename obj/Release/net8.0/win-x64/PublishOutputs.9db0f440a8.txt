@@ -1,0 +1,2 @@
+C:\Users\exdev\Desktop\study\learning\offensive-csharp\SharpMole\bin\Release\net8.0\win-x64\publish\SharpMole.exe
+C:\Users\exdev\Desktop\study\learning\offensive-csharp\SharpMole\bin\Release\net8.0\win-x64\publish\SharpMole.pdb
