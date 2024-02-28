@@ -311,7 +311,7 @@ class Program
         {
             // If the path is a root drive path (e.g., "C:\"), then just return the drive letter followed by "_Drive_permissions.xlsx"
             // For root directories, remove the colon and trailing backslash and append "_Drive"
-            name = name.TrimEnd('\\').TrimEnd(':') + "_Drive_permissions.xlsx";
+            name = name.TrimEnd('\\').TrimEnd(':') + "_Drive_permissions";
         }
 
         // Replace invalid filename characters with an underscore
@@ -321,6 +321,7 @@ class Program
             name = name.Replace(invalidChar, '_');
         }
 
+        name = name + ".xlsx"; //Ensures the returned filename always includes the .XLSX extension
         return name;
     }
 
