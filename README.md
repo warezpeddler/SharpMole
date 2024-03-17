@@ -1,6 +1,6 @@
 # SharpMole: Deep Dive into Windows File Systems and Shares
 
-**SharpMole** is a dirctory and share permission auditing tool designed to identify exposed secrets and interesting files. It provides insights into file permissions, helping both defensive and offensive security professionals in their operations. The tool is intended to be run locally on a target file system, from an authenticated perspective.
+**SharpMole** is a directory and share permissions auditing tool designed to identify exposed secrets and interesting files. It provides insights into file permissions, helping both defensive and offensive security professionals in their operations. The tool is intended to be run locally on a target file system, from an authenticated perspective.
 
 ## Requirements
 
@@ -26,7 +26,7 @@ To build **SharpMole** from source:
 ```
 dotnet publish -c Release -r win-x64 --self-contained
 ```
-4. You should now have a self-contained and portable `.exe` file. At this stage you are ready to go!
+4. You should now have a self-contained and portable `.exe` file and are ready to go!
 
 ## Usage and examples
 - Basic and general directory scan
@@ -64,5 +64,5 @@ Use the `--opsec` flag to minimize the risk of generating unauthorized access ev
 
 #### Limitations of the --opsec Flag
 
-- **Opsec is not guaranteed**: Opsec mode attempts to avoid generating unauthorized file access events. However, within hardened environments, Sharpmole is likely to generate alerts when more complex ACL rules are in place. TLDR: this flag is not a silver bullet and modification to the codebase may be required, in line with the target environment you are facing..
+- **Opsec is not guaranteed**: Opsec mode attempts to avoid generating unauthorized file access events by checking the current users permission before attempting to traverse a directory. However, within hardened environments, SharpMole is likely to generate alerts when more complex ACL rules are in use. TLDR: this flag is not a silver bullet and modification to the codebase may be required in order for SharpMole to work in the target environment you are assessing.
 - **Performance Impact**: These additional permission checks add overhead and the time it will take to complete is highly dependent on the size of the target directory/share.
