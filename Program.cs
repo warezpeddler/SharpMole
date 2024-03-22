@@ -93,7 +93,7 @@ class Program
             OutputToConsoleAndExcel(matchedFiles, directory);
         }
 
-        Console.ResetColor(); // Ensures the terminal color is reset to default after execution has concluded
+        Console.ResetColor(); // Ensures the terminal colour is reset to default after execution has concluded
     }
 
     static void PrintBanner()
@@ -128,7 +128,7 @@ class Program
             return input.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                         .Select(path => path.Trim()).ToList();
         }
-        return new List<string> { input.Trim() }; // Ensure single input is also trimmed
+        return new List<string> { input.Trim() }; // Ensure single input path is also trimmed
     }
 
     static List<string> TraverseDirectory(string rootDirectory, List<string> searchPatterns, List<string> fileNames)
@@ -305,7 +305,7 @@ class Program
         // Normalize network paths
         if (name.StartsWith("\\\\"))
         {
-            name = name.TrimStart('\\').Replace('\\', '_').Replace('$', 'S'); // Replace $ with 'S' and \ with _
+            name = name.TrimStart('\\').Replace('\\', '_').Replace('$', ''); // Removes $ symbol and replaces \ with _
         }
         else if (Path.IsPathRooted(name) && name.EndsWith(":\\"))
         {
@@ -321,7 +321,7 @@ class Program
             name = name.Replace(invalidChar, '_');
         }
 
-        name = name + ".xlsx"; //Ensures the returned filename always includes the .XLSX extension
+        name = name + ".xlsx"; //Ensures the returned filename always includes a .XLSX extension
         return name;
     }
 
